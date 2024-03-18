@@ -1,6 +1,6 @@
 # Panduan dalam menggunakan CodeIgniter4
 
-## Apa Itu CodeIgniter?
+## A. Apa Itu CodeIgniter?
 
 CodeIgniter merupakan sebuah full-stack web framework yang berbasis PHP.
 
@@ -10,7 +10,7 @@ Kita dapat membuka laman [user guide](https://codeigniter.com/user_guide/)
 untuk mengetahui update CodeIgniter lebih lanjut.
 <br><br>
 
-## Instalasi dan Update
+## B. Instalasi dan Update
 Untuk melakukan instalasi project ci kita dapat mengetikan perintah berikut pada command prompt
 ```
 composer create-project codeigniter4/appstarter project-root
@@ -27,7 +27,7 @@ jika tidak ada update akan muncul seperti ini :
 
 <img src="public/images/composer-update.png">
 
-## Menjalankan Aplikasi
+## C. Menjalankan Aplikasi
 Sebelum kita menjalankan aplikasi nya kita dapat melakukan beberapa konfigurasi terlebih dahulu, kita dapat melakukan beberapa konfigurasi ini pada file `env`,
 jangan lupa untuk rename file menjadi `.env` 
 
@@ -54,7 +54,7 @@ Konfigurasi Awal selesai, untuk menjalankan aplikasi kita dapat mengetikan perin
 php spark serve
 ```
 
-## Halaman Statis
+## D. Halaman Statis
 ### 1.Setting Routing Rules
 Routing adalah proses menentukan arah atau rute yang harus dilalui. Pada framework CI4, routing bertujuan untuk menentukan Controller mana yang harus merespon sebuah request.
 
@@ -138,7 +138,7 @@ untuk footer kita isi dengan kode berikut :
 Sebelumnya kita telah membuat method `views()` yang menerima parameter yang dimana akan menjadi nama dari halaman kita. 
 static page bodies akan kita letakkan di `app/Views/pages directory.`. jadi kita membuat folder baru lagi pada folder views.
 
-#### 4. Finishing Controller Pages
+#### Finishing Controller Pages
 Supaya kita dapat load file `home.php` dan `about.php` yang sudah kita buat, kita perlu menambahkan kode berikut pada controller pages method view
 ```shell
 <?php
@@ -168,27 +168,52 @@ class Pages extends BaseController
 
 Sekarang, ketika halaman yang diminta memang ada, halaman tersebut dimuat, termasuk header dan footer, dan dikembalikan ke pengguna. Jika controller mengembalikan nilai string, string tersebut akan ditampilkan kepada pengguna. Jika halaman yang diminta tidak ada, kesalahan “Halaman 404 tidak ditemukan” akan ditampilkan.
 
-### 4. Menjalankan Aplikasi
+### 5. Menjalankan Aplikasi
 Untuk menjalankan aplikasi ketikan kode perintah berikut pada `project-root' kita.
 ```
 php spark serve
 ```
 kita dapat melakukan pengujian berikut :
 - localhost:8080/
+  
    <img src="public/images/hasil1.png">
+   
    "welcome page" CodeIgniter. hasil dari index()method di home controller.
 - localhost:8080/pages
+  
    <img src="public/images/hasil2.png">
+   
    "welcome page" CodeIgniter. hasil dari index()method di pages controller.
 - localhost:8080/home
+  
    <img src="public/images/hasil3.png">
+   
    tampilkan halaman “home” yang telah kita buat. Hasil dari views method Pages controller.
 - localhost:8080/about
+  
    <img src="public/images/hasil4.png">
+   
    tampilkan halaman “about” yang telah kita buat. Hasil dari views method Pages controller.
 - localhost:8080/shop
+  
    <img src="public/images/hasil5.png">
-   Menghasilkan errorr karena tidak ada file `app/views/pages`
+   
+   Menghasilkan errorr karena tidak ada file `app/views/pages/shop`
+
+## E. Struktur Aplikasi
+
+<img src="public/images/struktur-ci.png">
+
+Untuk mempelajari CodeIgniter kita perlu memahami dulu struktur aplikasi dari CodeIgniter.
+Ci sendiri terdapat 5 buah direktori default yang masing - masing memiliki peran yang berbeda - beda, yaitu :
+1. app
+2. public
+3. system
+4. writeable
+5. tests
+6. vendor
+
+
 
 
 
