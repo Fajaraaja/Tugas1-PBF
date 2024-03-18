@@ -78,9 +78,55 @@ use App\Controllers\Pages;
 $routes->get('pages', [Pages::class, 'index']);
 $routes->get('(:segment)', [Pages::class, 'view']);
 ```
-- Routes kedua berfungsi ketika kita melakukan GET URI(Mengetikan URL) /pages yang kemudian akan diarahkan ke Controller Pages Fungsi Index.
-- Untuk Routes ketiga berfungsi ketika kita melakukan GET URI dengan placeholder `(:segment)` yang akan diteruskan ke Controller Pages Fungsi view.
+- Routes kedua berfungsi ketika kita melakukan GET URI(Mengetikan URL) /pages yang kemudian akan diarahkan ke Controller Pages Method Index.
+- Untuk Routes ketiga berfungsi ketika kita melakukan GET URI dengan placeholder `(:segment)` yang akan diteruskan ke Controller Pages Method view.
 
+### 2.Membuat Pages Controller
+Kita sudah menambahkan routes ke controller pages sedangkan kita belum punya controller pages. Oleh karena itu, mari kita buat controller pages nya dengan cara ;
+1. Masuk menu Controller
+2. klik kanan pada menu controller, pilih new file
+3. ketikan nama Pages.php
+
+Setelah itu masuk pada file Pages.php (Controller Page) lalu ketikan perintah berikut :
+```shell
+<?php
+
+namespace App\Controllers;
+
+class Pages extends BaseController
+{
+    public function index()
+    {
+        return view('welcome_message');
+    }
+
+    public function view($page = 'home')
+    {
+        // ...
+    }
+}
+```
+
+### 3. Membuat Views
+Kita akan membuat 2 buah views yang akan kita letakkan pada `Apps/Views/templates` yaitu ;
+1. header.php
+untuk file header akan kita isi dengan kode berikut :
+```shell
+<!doctype html>
+<html>
+<head>
+    <title>Tutorial CI4</title>
+</head>
+<body>
+
+    <h1><?= esc($judul) ?></h1>
+```
+pada file ini terdapat variabel `$judul` yang akan kita definisikan nanti.
+   
+2. footer.php
+untuk footer
+
+Kita telah membuat kelas bernama Pages, dengan view()metode yang menerima satu parameter bernama `$page`. kelas Pages juga memiliki `index() methods,` sama dengan controller default yang ditemukan di `app/Controllers/Home.php ;` metode itu menampilkan halaman selamat datang CodeIgniter.
 
 ## Repository Management
 
