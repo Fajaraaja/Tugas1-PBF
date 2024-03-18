@@ -12,13 +12,13 @@ untuk mengetahui update CodeIgniter lebih lanjut.
 
 ## Instalasi dan Update
 Untuk melakukan instalasi project ci kita dapat mengetikan perintah berikut pada command prompt
-```bash
+```
 composer create-project codeigniter4/appstarter project-root
 ```
 maka akan secara otomatis terbuat folder project-root, kita dapat mengganti `project_root` dengan nama sesuka kita.
 
 Selanjutnya kita dapat mengetikan perintah berikut pada project kita
-```bash
+```
 composer update
 ```
 Untuk melakukan pengecekan apakah CodeIgniter terdapat update, 
@@ -33,30 +33,51 @@ jangan lupa untuk rename file menjadi `.env`
 
 ### 1.Set aplikasi ke development mode
 <img src="public/images/ci-environment.png">
+
 kita ubah ci environment pada file `.env` dari production menjadi development.
 Dikarenakan pada development terdapat beberapa kelebihan salah satu nya adalah fitur debugging dan error handling.
 
 ### 2.Set Base URL
 <img src="public/images/BaseURL.png">
-kita dapat mengubah nama default dari base url kita disini saya ganti dengan 
+
+kita dapat mengubah nama default dari base url kita disini saya ganti dengan `http://localhost:8080`.
 
 
-### 1.Set aplikasi ke development mode
-<img src="public/images/ci-environment.png">
-kita ubah ci environment pada file `.env` dari production menjadi development.
-Dikarenakan pada development terdapat beberapa kelebihan salah satu nya adalah fitur debugging dan error handling.
+### 3.Set database 
+<img src="public/images/database.png">
+
+Disini kita dapat mengatur database yang akan kita gunakan pada aplikasi kita.
 
 
-## Important Change with index.php
+Konfigurasi Awal selesai, untuk menjalankan aplikasi kita dapat mengetikan perintah 
+```
+php spark serve
+```
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Halaman Statis
+### 1.Setting Routing Rules
+Routing adalah proses menentukan arah atau rute yang harus dilalui. Pada framework CI4, routing bertujuan untuk menentukan Controller mana yang harus merespon sebuah request.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+Mari kita setting routes rules. Buka file routes yang ada di `app/Config/Routes.php.`
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Maka akan muncul kode seperti berikut
+```shell
+<?php
+
+use CodeIgniter\Router\RouteCollection;
+
+/**
+ * @var RouteCollection $routes
+ */
+$routes->get('/', 'Home::index');
+```
+Selanjutnya kita dapat menambahkan routes berikut ini
+```shell
+use App\Controllers\Pages;
+
+$routes->get('pages', [Pages::class, 'index']);
+$routes->get('(:segment)', [Pages::class, 'view']);
+```
 
 ## Repository Management
 
