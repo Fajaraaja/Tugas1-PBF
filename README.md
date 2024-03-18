@@ -276,7 +276,39 @@ $routes->get('(:segment)', [Pages::class, 'view']);
 
 dengan kode berikut maka dapat dipastikan kita memerlukan untuk membuat News controller dengan 2 method, index dan show.
 
-###
+### Membuat News Controller
+tambahkan controller baru di `app/Controllers/News.php`.
+
+```shell
+<?php
+
+namespace App\Controllers;
+
+use App\Models\NewsModel;
+
+class News extends BaseController
+{
+    public function index()
+    {
+        $model = model(NewsModel::class);
+
+        $data['news'] = $model->getNews();
+    }
+
+    public function show($slug = null)
+    {
+        $model = model(NewsModel::class);
+
+        $data['news'] = $model->getNews($slug);
+    }
+}
+```
+
+### Menyelesaikan Method Index di News Controller
+```shell
+
+```
+
 
 ## E. Struktur Aplikasi
 
