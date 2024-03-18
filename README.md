@@ -166,4 +166,37 @@ class Pages extends BaseController
 }
 ```
 
+Sekarang, ketika halaman yang diminta memang ada, halaman tersebut dimuat, termasuk header dan footer, dan dikembalikan ke pengguna. Jika controller mengembalikan nilai string, string tersebut akan ditampilkan kepada pengguna. Jika halaman yang diminta tidak ada, kesalahan “Halaman 404 tidak ditemukan” akan ditampilkan.
+
+### 4. Menjalankan Aplikasi
+Untuk menjalankan aplikasi ketikan kode perintah berikut pada `project-root' kita.
+```
+php spark serve
+```
+kita dapat melakukan pengujian berikut :
+- localhost:8080/
+   <img src="public/images/hasil1.png">
+   "welcome page" CodeIgniter. hasil dari index()method di home controller.
+- localhost:8080/pages
+   <img src="public/images/hasil2.png">
+   "welcome page" CodeIgniter. hasil dari index()method di pages controller.
+- localhost:8080/home
+   <img src="public/images/hasil3.png">
+   tampilkan halaman “home” yang telah kita buat. Hasil dari views method Pages controller.
+- localhost:8080/about
+   <img src="public/images/hasil4.png">
+   tampilkan halaman “about” yang telah kita buat. Hasil dari views method Pages controller.
+- localhost:8080/shop
+   <img src="public/images/hasil5.png">
+   Menghasilkan errorr karena tidak ada file `app/views/pages`
+
+
+
+
+
+
+
+
+
+
 
