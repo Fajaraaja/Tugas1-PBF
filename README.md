@@ -29,17 +29,17 @@ jika tidak ada update akan muncul seperti ini :
 
 ## Menjalankan Aplikasi
 Sebelum kita menjalankan aplikasi nya kita dapat melakukan beberapa konfigurasi terlebih dahulu, kita dapat melakukan beberapa konfigurasi ini pada file `env`,
-jangan lupa untuk rename file menjadi `.env`
+jangan lupa untuk rename file menjadi `.env` 
 
 ### 1.Set aplikasi ke development mode
 <img src="public/images/ci-environment.png">
 kita ubah ci environment pada file `.env` dari production menjadi development.
 Dikarenakan pada development terdapat beberapa kelebihan salah satu nya adalah fitur debugging dan error handling.
 
-### 2.Set aplikasi ke development mode
-<img src="public/images/ci-environment.png">
-kita ubah ci environment pada file `.env` dari production menjadi development.
-Dikarenakan pada development terdapat beberapa kelebihan salah satu nya adalah fitur debugging dan error handling.
+### 2.Set Base URL
+<img src="public/images/BaseURL.png">
+kita dapat mengubah nama default dari base url kita disini saya ganti dengan 
+
 
 ### 1.Set aplikasi ke development mode
 <img src="public/images/ci-environment.png">
