@@ -107,6 +107,8 @@ class Pages extends BaseController
 }
 ```
 
+Kita telah membuat kelas bernama Pages, dengan view()metode yang menerima satu parameter bernama `$page`. kelas Pages juga memiliki `index() methods,` sama dengan controller default yang ditemukan di `app/Controllers/Home.php ;` metode itu menampilkan halaman selamat datang CodeIgniter.
+
 ### 3. Membuat Views
 Kita akan membuat 2 buah views yang akan kita letakkan pada `Apps/Views/templates` yaitu ;
 1. header.php
@@ -124,34 +126,44 @@ untuk file header akan kita isi dengan kode berikut :
 pada file ini terdapat variabel `$judul` yang akan kita definisikan nanti.
    
 2. footer.php
-untuk footer
+untuk footer kita isi dengan kode berikut :
+```shell
+    <em>&copy; 2024</em>
+</body>
+</html>
+```
 
-Kita telah membuat kelas bernama Pages, dengan view()metode yang menerima satu parameter bernama `$page`. kelas Pages juga memiliki `index() methods,` sama dengan controller default yang ditemukan di `app/Controllers/Home.php ;` metode itu menampilkan halaman selamat datang CodeIgniter.
+### 4. Menambahkan Logika ke Controller
+#### Membuat home.php & about.php
+Sebelumnya kita telah membuat method `views()` yang menerima parameter yang dimana akan menjadi nama dari halaman kita. 
+static page bodies akan kita letakkan di `app/Views/pages directory.`. jadi kita membuat folder baru lagi pada folder views.
 
-## Repository Management
+#### 4. Finishing Controller Pages
+Supaya kita dapat load file `home.php` dan `about.php` yang sudah kita buat, kita perlu menambahkan kode berikut pada controller pages method view
+```shell
+<?php
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+namespace App\Controllers;
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+use CodeIgniter\Exceptions\PageNotFoundException; // Add this line
 
-## Server Requirements
+class Pages extends BaseController
+{
+    // ...
 
-PHP version 7.4 or higher is required, with the following extensions installed:
+    public function view($page = 'home')
+    {
+        if (! is_file(APPPATH . 'Views/pages/' . $page . '.php')) {
+            // Whoops, we don't have a page for that!
+            throw new PageNotFoundException($page);
+        }
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+        $data['judul'] = ucfirst($page); // Mengkapitalisasi Huruf Pertama
+        return view('templates/header', $data)
+            . view('pages/' . $page)
+            . view('templates/footer');
+    }
+}
+```
 
-> [!WARNING]
-> The end of life date for PHP 7.4 was November 28, 2022.
-> The end of life date for PHP 8.0 was November 26, 2023.
-> If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> The end of life date for PHP 8.1 will be November 25, 2024.
 
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
