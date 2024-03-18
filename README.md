@@ -1,23 +1,30 @@
-# CodeIgniter 4 Application Starter
+# Panduan dalam menggunakan CodeIgniter4
 
-## What is CodeIgniter?
+## Apa Itu CodeIgniter?
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+CodeIgniter merupakan sebuah full-stack web framework yang berbasis PHP.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+untuk informasi lebih lanjut dapat mengunjungi [official site](https://codeigniter.com).
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+Kita dapat membuka laman [user guide](https://codeigniter.com/user_guide/)
+untuk mengetahui update CodeIgniter lebih lanjut.
+<br><br>
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## Instalasi dan Update
+Untuk melakukan instalasi project ci kita dapat mengetikan perintah berikut pada command prompt
+```bash
+composer create-project codeigniter4/appstarter project-root
+```
+maka akan secara otomatis terbuat folder project-root, kita dapat mengganti `project_root` dengan nama sesuka kita.
 
-## Installation & updates
+Selanjutnya kita dapat mengetikan perintah berikut pada project kita
+```bash
+composer update
+```
+Untuk melakukan pengecekan apakah CodeIgniter terdapat update, 
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+jika tidak ada update akan muncul seperti ini :
+<img src="">
 
 When updating, check the release notes to see if there are any changes you might need to apply
 to your `app` folder. The affected files can be copied or merged from
