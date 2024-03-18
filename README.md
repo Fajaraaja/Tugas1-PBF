@@ -27,7 +27,17 @@ jika tidak ada update akan muncul seperti ini :
 
 <img src="public/images/composer-update.png">
 
-## C. Menjalankan Aplikasi
+
+## C. TroubleShooting
+Untuk mengetahui apakah project kita berjalan adalah dengan mengetikan perintah 
+```shell
+php spark serve
+```
+<img src="public/images/hasil1.png">
+
+
+
+## D. Menjalankan Aplikasi
 Sebelum kita menjalankan aplikasi nya kita dapat melakukan beberapa konfigurasi terlebih dahulu, kita dapat melakukan beberapa konfigurasi ini pada file `env`,
 jangan lupa untuk rename file menjadi `.env` 
 
@@ -54,7 +64,7 @@ Konfigurasi Awal selesai, untuk menjalankan aplikasi kita dapat mengetikan perin
 php spark serve
 ```
 
-## D. Halaman Statis
+## E. Halaman Statis
 ### 1.Setting Routing Rules
 Routing adalah proses menentukan arah atau rute yang harus dilalui. Pada framework CI4, routing bertujuan untuk menentukan Controller mana yang harus merespon sebuah request.
 
@@ -201,7 +211,7 @@ kita dapat melakukan pengujian berikut :
    Menghasilkan errorr karena tidak ada file `app/views/pages/shop`
 
 
-## E. News Section
+## F. News Section
 Kita telah berhasil membuat halaman statis, mari kita coba untuk menambahkan dynamic content dan koneksi database.
 
 ### Membuat database
@@ -400,7 +410,7 @@ Jika semua sudah berjalan dengan baik maka akan menghasilkan output seperti beri
 
 <img src="public/images/hasil6.png">
 
-## F. Struktur Aplikasi
+## G. Struktur Aplikasi
 
 <img src="public/images/struktur-ci.png">
 
@@ -428,7 +438,7 @@ Direktori yang di set untuk pengujian file.
 ### 5. Vendor
 Direktori yang dapat digunakan untuk third party app, seperti `API`, `HTTP REQUEST`, dll.
 
-## G. Model, View, Controller (MVC)
+## H. Model, View, Controller (MVC)
 
 <img src="public/images/mvc.jpg">
 
@@ -440,9 +450,26 @@ Views merupakan tampilan yang menghubungkan pengguna dengan sistem, yang didalam
 ### Controller
 Controller berisi logic dari aplikasi yang berguna untuk mengatur jalannya proses aplikasi
 
+## I. Error Handling
+### Error Reporting
+Secara default CodeIgniter akan menampilkan detail error di development dan testing environtment. dan tidak muncul pada production environment.
+<img src="public/images/errorhandling.png">
 
+### logging Exception
+secara default, semua exception kecuali 404 - Page Not Found exceptions dicatat. kita dapat menyalakan atau mematiokan dari setting $log di `app/Config/Exceptions.php:`
 
+## J. Caching Halaman Web
+CodeIgniter memungkinkan Anda melakukan cache halaman Anda untuk mencapai kinerja maksimal.
 
+Meskipun CodeIgniter cukup cepat, jumlah informasi dinamis yang Anda tampilkan di halaman Anda akan berkorelasi langsung dengan sumber daya server, memori, dan siklus pemrosesan yang digunakan, yang mempengaruhi kecepatan memuat halaman Anda. Dengan menyimpan halaman Anda dalam cache, karena halaman tersebut disimpan dalam keadaan dirender sepenuhnya, Anda dapat mencapai kinerja yang lebih mendekati kinerja halaman web statis.
+
+### Mengaktifkan Chaching
+Untuk mengaktifkan caching, letakkan tag berikut di salah satu method controller:
+```
+<?php
+
+$this->cachePage($n);
+```
 
 
 
