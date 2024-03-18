@@ -200,6 +200,84 @@ kita dapat melakukan pengujian berikut :
    
    Menghasilkan errorr karena tidak ada file `app/views/pages/shop`
 
+
+## E. News Section
+Kita telah berhasil membuat halaman statis, mari kita coba untuk menambahkan dynamic content dan koneksi database.
+
+### Membuat database
+Untuk membuat database dapat kita buat secara manual dengan membuka phpmyadmin lalu buat database dengan nama `ci4tutorial`.
+lalu ketikan query berikut pada MySQL
+```shell
+CREATE TABLE news (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    title VARCHAR(128) NOT NULL,
+    slug VARCHAR(128) NOT NULL,
+    body TEXT NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE slug (slug)
+);
+```
+Selanjutnya kita melakukan query untuk memasukkan data kedalam tabel news
+```shell
+INSERT INTO news VALUES
+(1,'Elvis sighted','elvis-sighted','Elvis was sighted at the Podunk internet cafe. It looked like he was writing a CodeIgniter app.'),
+(2,'Say it isn\'t so!','say-it-isnt-so','Scientists conclude that some programmers have a sense of humor.'),
+(3,'Caffeination, Yes!','caffeination-yes','World\'s largest coffee shop open onsite nested coffee shop for staff only.');
+```
+
+### Membuat Model News
+kita telah membuat database dan tabel selanjutnya mari kita membuat model untuk menghubungkan database tersebut.
+
+```shell
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class NewsModel extends Model
+{
+    protected $table = 'news';
+}
+```
+
+### Menambahkan method getNews() di News Model
+database dan model sudah ter set, sekarang kita perlu sebuah method untuk mengambil semua post dari database untuk ditampilkan, untuk menangani masalah tersebut
+kita dapat melakukan perintah berikut
+
+```shell
+ public function getNews($slug = false)
+    {
+        if ($slug === false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['slug' => $slug])->first();
+    }
+```
+
+### Menambahkan Routing Rules
+kita tambahkan beberapa kode pada `app\Config\Routes.php`, kita tambahkan kode berikut :
+
+```shell
+<?php
+
+// ...
+
+use App\Controllers\News; // Add this line
+use App\Controllers\Pages;
+
+$routes->get('news', [News::class, 'index']);           // Add this line
+$routes->get('news/(:segment)', [News::class, 'show']); // Add this line
+
+$routes->get('pages', [Pages::class, 'index']);
+$routes->get('(:segment)', [Pages::class, 'view']);
+```
+
+dengan kode berikut maka dapat dipastikan kita memerlukan untuk membuat News controller dengan 2 method, index dan show.
+
+###
+
 ## E. Struktur Aplikasi
 
 <img src="public/images/struktur-ci.png">
