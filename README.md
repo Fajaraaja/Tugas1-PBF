@@ -208,11 +208,25 @@ Untuk mempelajari CodeIgniter kita perlu memahami dulu struktur aplikasi dari Co
 Ci sendiri terdapat 5 buah direktori default yang masing - masing memiliki peran yang berbeda - beda, yaitu :
 1. app
 2. public
-3. system
-4. writeable
-5. tests
-6. vendor
+3. writeable
+4. tests
+5. vendor
 
+### 1. app
+Pada direktori app merupakan direktori utama pada aplikasi. karena pada direktori ini terdapat component-component penting, Seperti :
+`Config/`, `Controller/`, `Models/`, `Views/`, dll.
+
+### 2. Public
+Direktori public dapat kita isi dengan asset-asset yang akan digunakan pada aplikasi kita, contohnya `images`, `javascript` dan `css`.
+
+### 3. writeable
+Pada direktori ini akan terisi secara otomatis oleh sistem, didalam nya berisi salah satu nya yaitu `cache`, `log`.
+
+### 4. tests
+Direktori yang di set untuk pengujian file.
+
+### 5. Vendor
+Direktori yang dapat digunakan untuk third party app, seperti `API`, `HTTP REQUEST`, dll.
 
 
 
