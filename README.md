@@ -230,6 +230,15 @@ Direktori yang dapat digunakan untuk third party app, seperti `API`, `HTTP REQUE
 
 ## F. Model, View, Controller (MVC)
 
+<img src="public/images/mvc.jpg">
+
+CodeIgniter menggunakan pola MVC untuk mengatur file - file yang ada didalamnya. Model, Views, Controller berada dalam direktori `app/`.
+### Model
+Model biasanya digunakan untuk menangani query ke database, termasuk CRUD.
+### Views
+Views merupakan tampilan yang menghubungkan pengguna dengan sistem, yang didalamnya biasanya diisi HTML dan CSS.
+### Controller
+Controller berisi logic dari aplikasi yang berguna untuk mengatur jalannya proses aplikasi
 
 
 
