@@ -35,7 +35,23 @@ php spark serve
 ```
 <img src="public/images/hasil1.png">
 
+Jika terjadi masalah hanya default pages yang ter load, maka ubah kode berikut
+```shell
+<?php
 
+namespace Config;
+
+use CodeIgniter\Config\BaseConfig;
+
+class App extends BaseConfig
+{
+    // ...
+
+    public string $indexPage = 'index.php?';
+
+    // ...
+}
+```
 
 ## D. Menjalankan Aplikasi
 Sebelum kita menjalankan aplikasi nya kita dapat melakukan beberapa konfigurasi terlebih dahulu, kita dapat melakukan beberapa konfigurasi ini pada file `env`,
