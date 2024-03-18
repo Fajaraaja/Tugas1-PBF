@@ -24,16 +24,28 @@ composer update
 Untuk melakukan pengecekan apakah CodeIgniter terdapat update, 
 
 jika tidak ada update akan muncul seperti ini :
+
 <img src="public/images/composer-update.png">
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Menjalankan Aplikasi
+Sebelum kita menjalankan aplikasi nya kita dapat melakukan beberapa konfigurasi terlebih dahulu, kita dapat melakukan beberapa konfigurasi ini pada file `env`,
+jangan lupa untuk rename file menjadi `.env`
 
-## Setup
+### 1.Set aplikasi ke development mode
+<img src="public/images/ci-environment.png">
+kita ubah ci environment pada file `.env` dari production menjadi development.
+Dikarenakan pada development terdapat beberapa kelebihan salah satu nya adalah fitur debugging dan error handling.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+### 2.Set aplikasi ke development mode
+<img src="public/images/ci-environment.png">
+kita ubah ci environment pada file `.env` dari production menjadi development.
+Dikarenakan pada development terdapat beberapa kelebihan salah satu nya adalah fitur debugging dan error handling.
+
+### 1.Set aplikasi ke development mode
+<img src="public/images/ci-environment.png">
+kita ubah ci environment pada file `.env` dari production menjadi development.
+Dikarenakan pada development terdapat beberapa kelebihan salah satu nya adalah fitur debugging dan error handling.
+
 
 ## Important Change with index.php
 
