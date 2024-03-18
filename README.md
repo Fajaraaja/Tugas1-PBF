@@ -24,7 +24,7 @@ composer update
 Untuk melakukan pengecekan apakah CodeIgniter terdapat update, 
 
 jika tidak ada update akan muncul seperti ini :
-<img src="">
+<img src="public/images/composer-update.png">
 
 When updating, check the release notes to see if there are any changes you might need to apply
 to your `app` folder. The affected files can be copied or merged from
