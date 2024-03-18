@@ -306,11 +306,36 @@ class News extends BaseController
 
 ### Menyelesaikan Method Index di News Controller
 ```shell
+<?php
 
+namespace App\Controllers;
+
+use App\Models\NewsModel;
+
+class News extends BaseController
+{
+    public function index()
+    {
+        $model = model(NewsModel::class);
+
+        $data = [
+            'news'  => $model->getNews(),
+            'title' => 'News archive',
+        ];
+
+        return view('templates/header', $data)
+            . view('news/index')
+            . view('templates/footer');
+    }
+
+    // ...
+}
 ```
 
 
-## E. Struktur Aplikasi
+
+
+## F. Struktur Aplikasi
 
 <img src="public/images/struktur-ci.png">
 
@@ -338,7 +363,7 @@ Direktori yang di set untuk pengujian file.
 ### 5. Vendor
 Direktori yang dapat digunakan untuk third party app, seperti `API`, `HTTP REQUEST`, dll.
 
-## F. Model, View, Controller (MVC)
+## G. Model, View, Controller (MVC)
 
 <img src="public/images/mvc.jpg">
 
